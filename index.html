@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Array Practice</title>
+    </head>
+    <body>
+        <div style="text-align: right;">
+            <h1> map() filter() reduce() ~</h1>
+            <p>and i took that personally ~</p>
+        </div>
+        
+        <script>
+            console.log('bro at the gym today said he thought "you were 19 years old"')
+
+
+
+
+
+            const myArray = [1, 2, 3, 4, 5];
+
+
+            // plain *function* version \\\
+
+            function sumOfTripledEvens(array) {
+                let sum = 0;
+                
+                for (let i = 0; i < array.length; i++) {
+
+                    if (array[i] % 2 == 0 ) {
+
+                        sum += array[i] * 3 
+                    }
+                }   
+             
+                return sum
+            }
+            
+
+            console.log(sumOfTripledEvens(myArray))
+
+
+            /* *power* version 
+
+                const evenNum = myArray.filter((num)=>{if(num % 2 == 0) {return true;}})
+
+                const timesTreed = evenNum.map((num)=>{return num*3})
+
+                const sum = timesTreed.reduce((total, num)=>{
+                    total += num
+                    return total 
+                }, 0)
+            
+                console.log(evenNum)
+                console.log(timesTreed)
+                console.log(sum)
+            
+            */
+
+                function sumOfPower(array){
+                     return array
+                        .filter((num)=>{if(num % 2 == 0) {return true;}})
+                        .map((num)=>{return num*3})
+                        .reduce((total, num)=>{
+                            total += num
+                            return total
+                        },0)
+                }
+
+                console.log(sumOfPower(myArray))
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+
+</html>
