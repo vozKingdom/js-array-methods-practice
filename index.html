@@ -20,9 +20,14 @@
             const myArray = [1, 2, 3, 4, 5];
 
 
-            // plain *function* version \\\
+            
+            
+            
+            
+            
+            // plain version 
 
-            function sumOfTripledEvens(array) {
+            function plainSumOfTripledEvens(array) {
                 let sum = 0;
                 
                 for (let i = 0; i < array.length; i++) {
@@ -35,40 +40,59 @@
              
                 return sum
             }
-            
 
-            console.log(sumOfTripledEvens(myArray))
+        
+            // *good version 
 
+                function goodSumOfTripledEvens(array){
+                    let evenNum = array.filter((num)=>{if(num % 2 == 0) {return true;}})
 
-            /* *power* version 
+                    let timesTreed = evenNum.map((num)=>{return num*3})
 
-                const evenNum = myArray.filter((num)=>{if(num % 2 == 0) {return true;}})
-
-                const timesTreed = evenNum.map((num)=>{return num*3})
-
-                const sum = timesTreed.reduce((total, num)=>{
-                    total += num
-                    return total 
-                }, 0)
-            
-                console.log(evenNum)
-                console.log(timesTreed)
-                console.log(sum)
-            
-            */
-
-                function sumOfPower(array){
-                     return array
-                        .filter((num)=>{if(num % 2 == 0) {return true;}})
-                        .map((num)=>{return num*3})
-                        .reduce((total, num)=>{
+                    let sum = timesTreed.reduce((total, num)=>{
                             total += num
                             return total
                         },0)
+                    
+                    return sum
+                }
+            
+            
+            // *better version
+
+                function betterSumOfTripledEvens(array){
+                     return array
+                        .filter((num)=>{return (num % 2 == 0)})
+                        .map((num)=>{return num*3})
+                        .reduce((total, num)=>{
+                            return total + num
+                        })
                 }
 
-                console.log(sumOfPower(myArray))
+                
+            // *best version
 
+                function sumOfTripledEvens(array) {
+                    return array
+                        .filter((num) => num % 2 === 0)
+                        .map((num) => num * 3)
+                        .reduce((acc, curr) => acc + curr);
+                    }
+
+                
+
+
+
+
+
+
+                console.log(plainSumOfTripledEvens(myArray))
+
+                console.log(goodSumOfTripledEvens(myArray))
+
+                console.log(betterSumOfTripledEvens(myArray))
+
+                console.log(sumOfTripledEvens(myArray))
 
 
 
